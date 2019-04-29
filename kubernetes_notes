@@ -565,5 +565,63 @@ In case of the node, Master launches pods in another worker node.
 
 Kube-proxy:- Responsible for network configration
 core networking componets
+--------------------------------------------------------------------------------------------------------------------------------
 
+Installation method of Kubernetes
+----------------------------------
+
+
+#multiple ways of installing kubernetes
+https://labs.play-with-k8s.com
+minikub  : - single node as master/worker node
+kubeadm: - multi node kubernetes
+
+
+play with kubernetes
+- no  software applications are required and its a 4 hours session online(max time)
+
+1.kubeadm init --apiserver-advertise-address $(hostname -i)
+
+
+ kubectl apply -n kube-system -f \
+    "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 |tr -d '\n')"
+
+
+
+In kubernets nodes
+     kubeadm join 192.168.0.12:6443 --token e2al63.2viqh28j1k23uyv3 --discovery-token-ca-cert-hash sha256:a80966d0f825be97b5c85050b08d36607f7821bdb008ba47bb2a9bd020f67e01
+
+
+--------------------------------------------------------------------------------------------------------------------------
+Minikibe
+How to install and configure minikube
+
+Minikube is tool to install kubernetes locally
+Minikube contains all the all the componets of the master in single iso image.
+
+1. First install virtualbox
+2. Download the minkube executable
+github.com/kubernetes/minikube/releases
+
+3. kubectl
+Download the kubectl.exe
+
+4.start the Minikube
+minikube.exe start
+
+#kubectl get no
+
+checking the minikube status
+kubernets>minikube status
+
+To check the version od minikube
+>minikube version
+
+
+To deploy apps in kubernetes
+kubectl run kubernetes-bootcamp --image=gcr,,,,,,,,,,,    --port=8080
+
+
+To stop the minikube
+>minikube stop
 
