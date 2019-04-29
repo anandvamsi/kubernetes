@@ -14,6 +14,8 @@ we will use this to manage the cluster.
 --Componets in the master node
 Network: Resposible for IP managment
 etcd: KV store for kubernets objects
+Kuberntes confiugres all its config of nodes and object in ETCD
+
 kublet: runs on all the nodes
  
 
