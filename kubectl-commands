@@ -36,6 +36,7 @@ kubectl get pods
 kubectl get pods <pod-name>
 kubectl get pods  -o wide ;;; will have node informaton 
 kubectl get pods,deploy
+kubectl get pod nginx-pod -o yml -----to display pod config in yaml
 
 
 #To get the complete details the resources 
