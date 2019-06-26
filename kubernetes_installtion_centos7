@@ -78,6 +78,11 @@ systemctl restart kubelet
 
 
 
+Note: check the SE linux and docker status 
+SE linux should be disabled mode and docker should be running.
+if not please reboot the server
+
+
 ***********************************************************************************************************************************************
 
 4. Configure Kubernetes "master" node
