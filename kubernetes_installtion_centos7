@@ -124,11 +124,45 @@ kubeadm join 10.142.0.40:6443 --token 9xii6e.avuik4ciqrl1yacw --discovery-token-
 # Display nodes status
 kubectl get no
 
+Intial status
+[root@kmaster ~]# kubectl get nodes
+NAME           STATUS     ROLES    AGE     VERSION
+kmaster        Ready      master   5m28s   v1.15.0
+kworkernode1   NotReady   <none>   41s     v1.15.0
+kworkernode2   NotReady   <none>   39s     v1.15.0
+
+
+After 3-5 minutes
+[root@kmaster ~]# kubectl get no
+NAME           STATUS   ROLES    AGE    VERSION
+kmaster        Ready    master   6m1s   v1.15.0
+kworkernode1   Ready    <none>   74s    v1.15.0
+kworkernode2   Ready    <none>   72s    v1.15.0
+
+
+
 # Deploying sample application
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/controllers/nginx-deployment.yaml
 
 # Displaying Pod status
 kubectl get po -o wide
+
+Intial status
+[root@kmaster ~]# kubectl get po -o wide
+NAME                                READY   STATUS              RESTARTS   AGE   IP           NODE           NOMINATED NODE   READINESS GATES
+nginx-deployment-5754944d6c-7jpmw   0/1     ContainerCreating   0          13s   <none>       kworkernode1   <none>           <none>
+nginx-deployment-5754944d6c-bks2l   1/1     Running             0          13s   10.240.2.2   kworkernode2   <none>           <none>
+nginx-deployment-5754944d6c-xz4zb   0/1     ContainerCreating   0          13s   <none>       kworkernode1   <none>           <none>
+
+After 2 minutes
+[root@kmaster ~]# kubectl get po -o wide
+NAME                                READY   STATUS    RESTARTS   AGE   IP           NODE           NOMINATED NODE   READINESS GATES
+nginx-deployment-5754944d6c-7jpmw   1/1     Running   0          20s   10.240.1.2   kworkernode1   <none>           <none>
+nginx-deployment-5754944d6c-bks2l   1/1     Running   0          20s   10.240.2.2   kworkernode2   <none>           <none>
+nginx-deployment-5754944d6c-xz4zb   1/1     Running   0          20s   10.240.1.3   kworkernode1   <none>           <none>
+
+
+
 
 
 ************************************************************************************************************************************************
