@@ -116,6 +116,10 @@ Service is an end point,that exposes the port outside world maps the container p
 ##kubectl expose deployment my-httpd --port=8080 --target-port=80 --type=LoadBalancer
 This will generate a random port
 
+In Kmaster
+curl http://localhost:randomport
+
+
 ##kubectl get service
 
 Using the curl:<worker_node:newport> can be accessed from any machines in network
