@@ -1,0 +1,29 @@
+
+##Using tfk8s
+As a part of the IBM stack automation we need to convert the manifest file as part of the terraform code
+Hashicorp suggests going with an open source tool named "tfk8s",tfk8s converts kubernetes manifest file to HCL without much efforts.
+
+##Procedure
+
+1.We need to install tfk8s
+- https://github.com/jrhouston/tfk8s
+- Describes the procedure to install it
+
+2. This requires kubernestes_manifest as the provider
+   - Reference Link ;- https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/manifest
+
+3. Convert existing k8 manifest to HCL using tfk8s
+- cat nginx.yml | tfk8s > nginx.tf
+
+4. Terraform plan and apply will deploy the pods.
+
+5. Verify the output
+kubectl get pods --namespace test
+NAME    READY   STATUS    RESTARTS   AGE
+mypod   1/1     Running   0          53s
+
+
+My POC notes
+----------------
+I was able to convert sample pod deployment manifest to HCL format using tfk8s
+Using Terraform I was able to deploy the pod.
