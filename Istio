@@ -1,0 +1,37 @@
+1.Istio installation istioctl  curl command
+ curl -L https://istio.io/downloadIstio | sh -
+ cd istio-1.14.1
+export PATH=$PWD/bin:$PATH
+
+2.#setting up the profile 
+istioctl install --set profile=demo -y
+
+
+which will deploy 3 istio pods(egress,igress,istiod) in the namespace istio-system
+
+3. kubectl label namespace default istio-injection=enabled
+
+4. Deploy the application 
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+
+5.
+kubectl get services // will show the ClusterIP and othe services
+which cannot be access from outside
+
+
+6.Open the application to outside traffic
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+>> which will deploy the virtual service and gateway
+
+virtul service and gateway components needs to deployed using kubectl apply -from
+vs(virtual service) will redirect to gateway
+
+7. Setting up the variables
+export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+$ export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+$ export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
+
+INGRESS_HOST will be the ELB in case of AWS
+
+export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
+echo "http://$GATEWAY_URL/productpage"
