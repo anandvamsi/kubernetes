@@ -1,0 +1,30 @@
+step1:- 
+Login to the control plane node; make sure you have the kube.conf if not please follow the below procedure 
+Create a policy
+>>
+{
+   "Version": "2012-10-17",
+   "Statement": [
+       { 
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeCluster"
+            ],
+            "Resource": "*"
+       }
+    ]
+}
+<<<
+
+Attach a ec2 role and the with above policy
+aws eks --region <region> update-kubeconfig --name <cluster_name>
+
+This will generate a new kube config ~/.kube/
+
+
+
+Install the Kube-bench 
+curl -L https://github.com/aquasecurity/kube-bench/releases/download/v0.6.2/kube-bench_0.6.2_linux_amd64.tar.gz -o kube-bench_0.6.2_linux_amd64.tar.gz
+tar -xvf kube-bench_0.6.2_linux_amd64.tar.gz
+./kube-bench --config-dir `pwd`/cfg --config `pwd`/cfg/config.yaml 
+
