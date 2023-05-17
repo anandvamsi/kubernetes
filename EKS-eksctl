@@ -1,0 +1,13 @@
+Pre-requieste package to install 
+-----------------------------------
+step1:: Install AWSCLI
+
+step2::Install kubectl
+Install aws version 2.2
+Install kubectl 1.26
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.26.2/2023-03-17/bin/linux/amd64/kubectl
+mv /usr/local/bin
+
+step3:: Install eksctl
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+mv /tmp/eksctl /usr/local
