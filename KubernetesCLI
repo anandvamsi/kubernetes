@@ -1,2 +1,0 @@
-#sort-pods by time 
-kubectl get pod -A --sort-by={metadata.creationTimestamp}
