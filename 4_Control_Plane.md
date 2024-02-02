@@ -8,6 +8,11 @@ It is the front-end for the Kubernetes control plane.
 
 ```etcd```: This is a distributed key-value store that stores the cluster's configuration data,
 representing the overall state of the cluster. The etcd database is used as the single source of truth for the entire cluster.
+etcd is considered as the cluster brain 
+- what resources are available
+- Did the cluster state changed.
+- Application deployment state.
+- Only the application data is not stored in ETCD
 
 ```Kube-scheduler```: The scheduler is responsible for determining where to run newly created Pods based on factors such as resource requirements, node affinity, 
 and anti-affinity rules. It assigns Pods to suitable worker nodes.
