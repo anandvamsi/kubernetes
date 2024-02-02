@@ -21,3 +21,6 @@ and anti-affinity rules. It assigns Pods to suitable worker nodes.
 Controllers are responsible for handling tasks such as node and pod lifecycle management, maintaining the desired state.
 -   ```Node Controller```: Responsible for monitoring the nodes in the cluster and responding to changes in node availability or health.
 -   ```Replication Controller```: Ensures the specified number of replicas for a pod are running and maintains the desired state.
+
+
+Master nodes requires less resources(CPU|RAM|Storage) compared to worker nodes.
