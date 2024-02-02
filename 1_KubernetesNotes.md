@@ -32,7 +32,4 @@ Worker Node:
 On the worker nodes you are applications are running.
 
 
-## Kubernetes Basic Concepts.
-```pod``` ::- Smallest 
-Ratio is 1 pod: 1 container, some times we need multiple containers pods(databased,message broker)
-Each pod will have an IP address, That how pod communicates.
+
