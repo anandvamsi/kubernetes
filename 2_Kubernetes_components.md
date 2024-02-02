@@ -33,3 +33,4 @@
   Deploying application using Statefulset is bit challanging, that is the reason why DBs are often hosted outside of K8s clusters.
   StatefulSets are designed for applications that require stable network identities, stable storage, and ordered deployment and scaling.
   
+Note: - All the new request first hits the ingress, Ingress is replicated(load balanced) ingress then forwards the requets to service of my-app the direct the requests to pods.
