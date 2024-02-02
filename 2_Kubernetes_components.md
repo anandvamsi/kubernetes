@@ -26,7 +26,10 @@
 
 - ```Deployment```: Determintes how many pods replicates we would like to run, Deployment is another layer of abstration on Pods.
   we mostly work with deployments not directly over pods.
+   It provides a declarative way to define and manage the desired state of your application, ensuring that the specified number of instances (pods) are running and healthy.
+  Deployments which are suitable for stateless applications that can be easily replicated and scaled horizontally
   
 - ```Statefulset``` : This componets is suited for database(mysql,mongodb,elasticsearch), All the Database should be created by the statefulset not via deployments.
   Deploying application using Statefulset is bit challanging, that is the reason why DBs are often hosted outside of K8s clusters.
+  StatefulSets are designed for applications that require stable network identities, stable storage, and ordered deployment and scaling.
   
