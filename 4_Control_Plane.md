@@ -12,7 +12,9 @@ etcd is considered as the cluster brain
 - what resources are available
 - Did the cluster state changed.
 - Application deployment state.
-- Only the application data is not stored in ETCD
+- Only the application data is not stored in ETCD.
+-  Even if a pods dies, etcd redirects to create a new Pod in the same worker node.
+Note:- Kubernetes wont take the backup of etcd, it is advised to take the backup of etcd and store in remote-storage.
 
 ```Kube-scheduler```: The scheduler is responsible for determining where to run newly created Pods based on factors such as resource requirements, node affinity, 
 and anti-affinity rules. It assigns Pods to suitable worker nodes.
