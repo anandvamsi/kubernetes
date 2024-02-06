@@ -55,6 +55,7 @@ This will update the existing deployment of the application by creating a new re
 
 ## Debugging the pods
 ```code
+kubectl get pod --watch
 Kubect logs <podname>
 kubectl describe pod <podname>
 kubectl exec  -it <podname> -- bin/bash
