@@ -7,7 +7,7 @@ A Deployment is a management tool for controlling the behavior of pods. By defau
 Behind the scenes, the Deployment object creates ReplicaSets to run the required instances of the pod
 
 Note: The Deployment object eliminates the need for administrators to manually run pods on Kubernetes nodes
-
+if we remove the deployment this will eventually remove the respective replicaset and pods.
 
 ## Replicaset
 
@@ -40,6 +40,10 @@ mongod-5c65944cb9-9vhjt            1/1     Running   0          20m
 nginx-deployment-6644f659f-b69dw   1/1     Running   0          25m
 ```
 
+## Running the deployment with multiple replicas.
+```
+kubectl create deployment nginx2 --replicas=2 --image=nginx
+```
 
 ## To edit the deployment
 ```
