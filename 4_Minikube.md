@@ -4,6 +4,7 @@ dont have any resources memory/cpu ..etc
 
 Minikube is single node K8s cluster where master and worker node process resides in the single node.
 docker container pre-installed.
+Minikube is a lightweight Kubernetes (K8) installation, which can create a Virtual Machine (VM) on your local machine or in a cloud instance, which deploys a simple cluster containing only one nod
 
 minikube create a vbox on your laptop, kubectl is the client to connect the minikube.
 
