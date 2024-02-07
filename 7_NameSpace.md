@@ -2,7 +2,7 @@
   Organise resources in namespaces.
   virtual cluster in K8s cluster.
 
-# Life without Namespaces and Benefits of namespaces.
+## Life without Namespaces and Benefits of namespaces.
 - All the objects fall under single default namespace :- unorganized
 - Imagine more than 1 team working on same K8s cluster, if they have resources/object names this wil create a conflicts
 - smaller companies/Projects will have same cluster  if they want stagging,Dev resources in same cluster this will create  problems.
@@ -22,10 +22,22 @@
 
 ## Namespace commands
 ```bash
-kubectl create namespace <namespacename>
+
+[root@ip-10-80-224-32 ec2-user]# kubectl get ns
+NAME              STATUS   AGE
+default           Active   2d2h
+kube-node-lease   Active   2d2h
+kube-public       Active   2d2h
+kube-system       Active   2d2h
+
+kubectl create ns mongo
+namespace/mongo created
+
 kubectl apply -f db.yaml --namespace=mongons
 Another method is to include the namespace under the metadata.
 ```
 
+# KubeNS
+  kubens is the command that will show the current namespace
 
     
