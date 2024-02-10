@@ -35,11 +35,12 @@ helam list -a // list the helam charts
      - Create a chart for the deployment and use the chart for the other environments.
 
 ## How to upgrade  with Helam
-Step 1: update the Chart.yaml mention the version number
-step 2: Edit the manifest files as per the needs
-step 3: helam upgrade <release-name> <chartname> .
-
+     Step 1: update the Chart.yaml mention the version number
+     step 2: Edit the manifest files as per the needs
+     step 3: helam upgrade <release-name> <chartname> .
+     
 ## How to Rollback to previous version
-step1: helm rollback <chartname> <version number>
+     step1: helm rollback <chartname> <version number>
 
 ## How to delete <chart> 
+     helam delete chartname
