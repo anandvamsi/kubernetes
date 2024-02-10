@@ -1,5 +1,12 @@
 # Helam
 Package manager for kubernetes; To package YAML files and distribute them in private and public repositories.
+Helam charts are more like yum/apt repositories in Linux
+
+## 3 Main actions with Helam charts
+- Install
+- Upgrade
+- Delete
+
 
 ## Helam commands
 ```bash
