@@ -6,6 +6,14 @@ Deployments are a higher-level abstraction built on top of the Kubernetes Pods a
 A Deployment is a management tool for controlling the behavior of pods. By default, Kubernetes runs one instance for each Pod you create. However, by defining a Deployment object, you can specify that Kubernetes should run multiple instances of the pod. 
 Behind the scenes, the Deployment object creates ReplicaSets to run the required instances of the pod
 
+```Creating and Updating Pods```: Deployments ensure that the specified number of pod replicas are running at all times. They can also be used to update pods to a new version by rolling out updates incrementally.
+
+```Rollback```: If an update causes issues, Deployments can be rolled back to a previous version automatically or manually.
+
+```Scaling```: Deployments support scaling the number of pod replicas up or down as needed.
+
+```Self-healing```: Deployments can automatically replace failed or unresponsive pods to maintain the desired state.
+
 Note: The Deployment object eliminates the need for administrators to manually run pods on Kubernetes nodes
 if we remove the deployment this will eventually remove the respective replicaset and pods.
 
