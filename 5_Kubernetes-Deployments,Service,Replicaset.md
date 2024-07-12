@@ -81,6 +81,15 @@ kubectl exec  -it <podname> -- bin/bash
 ```
 
 ## Service
+Services enable communication between various components in a Kubernetes cluster, such as Pods, without requiring the clients to track IP addresses of individual Pods, which can change over time.
+
+There are different types of :
+```ClusterIP (default)```: Exposes the service on a cluster-internal IP. Only accessible within the cluster
+```NodePort```: Exposes the service on each Node’s IP at a static port. Accessible from outside the cluster using <NodeIP>:<NodePort>.
+```LoadBalancer```: Creates an external load balancer (e.g., AWS ELB, Google Cloud Load Balancer) and assigns a fixed, external IP to the service.
+```ExternalName```: Maps the service to the contents of the externalName field (e.g., a DNS name). No proxying of any kind is set up.
+ 
+ 
  A Kubernetes Service acts as entry point to running pods. You don’t need to worry about the exact number of running pods, ```how to distribute the load```, how to detect ready pods and so on. The Service will do all the work for yo
 
 ### service.yaml
