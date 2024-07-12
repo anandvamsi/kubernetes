@@ -1,4 +1,4 @@
-# Kubectl commands
+# Kubectl commands:
 
 
 ## Deployment 
@@ -60,6 +60,17 @@ kubectl edit deployment <deployment-name>
 ```
 This will update the existing deployment of the application by creating a new replicaset and pods
 
+## To Rollback the deployments
+```bash
+kubectl rollout undo deployment my-deployment
+```
+
+## Verify the deployment status
+```bash
+kubectl get deployments
+kubectl describe deployment my-deployment
+```
+
 
 ## Debugging the pods
 ```code
@@ -69,7 +80,19 @@ kubectl describe pod <podname>
 kubectl exec  -it <podname> -- bin/bash
 ```
 
+## Service
+ A Kubernetes Service acts as entry point to running pods. You don’t need to worry about the exact number of running pods, ```how to distribute the load```, how to detect ready pods and so on. The Service will do all the work for yo
 
-
-
-
+### service.yaml
+```bash
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-app-service
+spec:
+  selector:
+    app: spring-boot-app
+  ports:
+    - port: 8080
+      targetPort: 8080
+```
