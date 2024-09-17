@@ -88,7 +88,7 @@ if not please reboot the server
 4. Configure Kubernetes "master" node
 
 # Initializing master node
-kubeadm init --pod-network-cidr=10.240.0.0/16
+kubeadm init --pod-network-cidr=10.240.0.0/16 --kubernetes=v1.23.0
 
 ---------------------------------------------------------------------
 
