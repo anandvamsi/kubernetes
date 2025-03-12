@@ -18,7 +18,7 @@ Minikube installation prerequiste:
 
 step1: Install docker 
 ```code
-yum intall docker
+yum install docker
 systemctl enable docker
 systemctl start docker
 ```
