@@ -27,3 +27,14 @@ spec:
         exec:
           command: ["/bin/sh", "-c", "echo Deregistering container from monitoring service; sleep 5"]
 ```
+### postStart
+```bash
+Runs immediately after the container starts.
+Example command registers the container with a monitoring system.
+```
+
+### preStop
+```bash
+Runs before the container terminates.
+Example command deregisters the container and sleeps 5 seconds to allow graceful shutdown.
+```
