@@ -39,3 +39,40 @@ spec:
 ### Compliance and Security
 - Example: Place workloads handling sensitive data only on nodes in specific AZs or with encryption enabled.
 
+## Command  to label the node
+```bash
+kubectl get nodes
+kubectl label nodes <node-name> disktype=ssd
+kubectl get nodes --show-labels
+```
+
+
+
+# Node Affinity 
+- Attracts pods to a set of nodes (eitheras a hard or soft requirement).
+- Node affinity in Kubernetes is a set of rules used to define how pods should be scheduled onto nodes based on node labels. It controls the placement of pods by specifying preferences or strict requirements about which nodes are eligible to run a pod.
+
+- RequiredDuringSchedulingIgnoredDuringExecution (hard rule): The pod must be scheduled on nodes matching the specified criteria; if no node matches, the pod remains pending. This enforces strict placement.
+
+- DreferredDuringSchedulingIgnoredDuringExecution (soft rule): The scheduler prefers nodes matching the criteria but will place the pod elsewhere if no matching node is available, offering flexible scheduling
+
+## Node Affinity manifest
+```bash
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: disktype
+          operator: In
+          values:
+          - ssd
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 1
+      preference:
+        matchExpressions:
+        - key: zone
+          operator: In
+          values:
+          - us-central1-a
+```
