@@ -10,6 +10,11 @@ containerd is an industry-standard container runtime that acts as the engine Kub
 ### OneLiner
 ```In short: Kubernetes orchestrates, containerd executes.```
 
+## what is CRI container Runtime Interface
+CRI (Container Runtime Interface) is the standard "language" that Kubernetes uses to talk to whatever software actually runs containers on a node. 
+Think of it as a universal adapter: Kubernetes doesn't need to know whether the node uses containerd, CRI-O, or something else — as long as the runtime speaks CRI, it just works
+
+
 ## What is CTR
 ctr is the command-line client that ships with containerd for interacting directly with the containerd daemo
 ```bash
@@ -34,3 +39,15 @@ nerdctl compose up -d
 - Installed sepertely
 - Used to inspects debug container runtimes
 - works across different run times
+
+#### commands to inspecting the pods
+```bash
+crictl ps -a
+crictl logs <container-id>
+crictl logs --tail=100 <container-id>
+crictl logs -f <container-id>
+```
+### Interview question ::- Difference between Docker CLI and crictl
+Crictl supports ::- Any CRI runtime (containerd, CRI-O, etc.) where docker supports only docker daemon
+Docker dont have pod awareness where Critcl do have  — crictl pods lists Pod sandboxes
+No build — crictl cannot build images. It only pulls and inspects them.
