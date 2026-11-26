@@ -20,7 +20,9 @@ if we remove the deployment this will eventually remove the respective replicase
 ## Replicaset
 
 A ReplicaSet is a Kubernetes object that runs multiple instances of a pod and ensures a certain number of pods is running at all times.
-When a pod fails, the ReplicaSet immediately starts a new instance of the pod. At any given time, if the number of running instances does not match the specified number, it scales up and creates another instance of the pod with the same label. If there are extra pods, the ReplicaSet scales down by removing them.
+When a pod fails, the ReplicaSet immediately starts a new instance of the pod. 
+
+At any given time, if the number of running instances does not match the specified number, it scales up and creates another instance of the pod with the same label. If there are extra pods, the ReplicaSet scales down by removing them.
 
 By contrast, a Deployment is a higher-level concept that manages ReplicaSets and provides declarative updates to pods along with many other features. The Kubernetes documentation recommends that users do not directly work with ReplicaSets, instead using Deployments.
 
