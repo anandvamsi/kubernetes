@@ -60,7 +60,20 @@ kubectl create deployment nginx2 --replicas=2 --image=nginx
 kubectl edit deployment <deployment-name>
 >> the image version
 ```
+
+## TO record the deployment 
+```
+
+kubectl create -f deployemnt-definition.yml --record
+
+
+kubectl set image deployment/<deployment-name> <container-name>=nginx:<new-version>
+kubectl rollout status  deployment/<deployment-name>
+
+kubectl rollout history deployment/<deployment-name>
+kubectl rollout undo deployment/<deployment-name>
 This will update the existing deployment of the application by creating a new replicaset and pods
+```
 
 ## To Rollback the deployments
 ```bash
