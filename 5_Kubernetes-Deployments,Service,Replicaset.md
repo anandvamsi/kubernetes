@@ -95,6 +95,19 @@ kubectl describe pod <podname>
 kubectl exec  -it <podname> -- bin/bash
 ```
 
+
+# To change the image of the deployment
+```bash
+# method 1
+kubectl set image deployment/<deployment-name> <container-name>=nginx:<new-version>---- Another way to set the image
+kubectl set image deployment/frontend  simple-webapp=kodekloud/webapp-color:v2
+
+method 2
+kubectl set image deploy frontend simple-webapp=kodekloud/webapp-color:v1
+Here simple-webapp is the name of the container
+kodekloud/webapp-color:v1 is the new image with versio
+```
+
 ## Service
 Services enable communication between various components in a Kubernetes cluster, such as Pods, without requiring the clients to track IP addresses of individual Pods, which can change over time.
 
